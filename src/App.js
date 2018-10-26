@@ -11,7 +11,6 @@ import {
   ModalFooter,
 } from "reactstrap";
 import "./App.css";
-import Gist from "react-gist";
 
 class App extends Component {
   constructor(props) {
@@ -32,14 +31,10 @@ class App extends Component {
     var mode = localStorage.getItem("mode");
     if (mode === "lightMode") {
       localStorage.setItem("mode", "nightMode");
-       // eslint-disable-next-line
-      var mode = localStorage.getItem("mode");
-      this.setState({ class: mode });
+      this.setState({ class: 'nightMode' });
     } else {
       localStorage.setItem("mode", "lightMode");
-       // eslint-disable-next-line
-      var mode = localStorage.getItem("mode");
-      this.setState({ class: mode });
+      this.setState({ class: 'lightMode' });
     }
   };
 
@@ -58,12 +53,9 @@ class App extends Component {
         <div className={this.state.class}>
           <h3 style={{ marginTop: "10vh" }}>LocalStorage NightMode</h3>
 
-        Persistence on page reload
-
-                    <hr />
-
-
-        STATE = {this.state.class}
+            Persistence on page reload
+            <hr />
+            STATE = {this.state.class}
 
             <Button
               className="mt-5 mb-5 pl-5 pr-5"
@@ -96,18 +88,16 @@ class App extends Component {
             </ol>
           </div>
 
-          <Modal
-            centered={true}
-            size={"lg"}
+          <Modal 
+          size='lg' 
             isOpen={this.state.modal}
             toggle={this.toggle}
           >
             <ModalHeader toggle={this.toggle}>Source Code</ModalHeader>
             <ModalBody>
-              <Gist
-                style={{ width: "100vh" }}
-                id="4eaa292035a256348e419b31f5fbe467"
-              />
+
+            <img alt='gist' src={process.env.PUBLIC_URL + '/carbon.png'} id='carbon'/>
+            <a href='https://github.com/Protobulb/nightMode' >https://github.com/Protobulb/nightMode</a>
             </ModalBody>
             <ModalFooter>
               <Button color="dark" onClick={this.toggle}>
@@ -115,6 +105,7 @@ class App extends Component {
               </Button>
             </ModalFooter>
           </Modal>
+
         </div>
       </div>
     );

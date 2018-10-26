@@ -34,3 +34,7 @@
   font-size: calc(10px + 2vmin);
   color: #fcfcfc;
 }
+
+#carbon {
+  width: 100%
+}
